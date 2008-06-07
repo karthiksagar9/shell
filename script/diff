@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby -wKU
+
+# remove log files + tmp files from each app
+
+puts `diff . ../openidauth -r -N`

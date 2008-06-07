@@ -1,0 +1,26 @@
+
+<%= error_messages_for :user %>
+<% form_tag url_for(reset_password_path), :class => "uniForm" do %>
+  <fieldset class="inlineLabels">
+    <legend>Choose a New Password</legend>
+    <%= hidden_field_tag :activation_code, @user.activation_code %>
+  
+    <div class="ctrlHolder">
+      <p>
+        <label for="password">Password:</label>
+        <%= password_field_tag :password, {}, :tabindex => 2, :class => "textInput" %>
+      </p>
+    </div>
+    <div class="ctrlHolder">
+      <p>
+        <label for="confirm_password">Confirm Password:</label>
+        <%= password_field_tag :password_confirmation, {}, :tabindex => 2, :class => "textInput" %>
+      </p>
+    </div>
+    <p class="buttons">
+      <button id="up-butt" type="submit" tabindex="3">
+        <%= image_tag("icons/textfield_key.png", :border => 0 ) %>Reset Password
+      </button>
+    </p>
+  </fieldset>
+<% end %>

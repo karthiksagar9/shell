@@ -1,0 +1,23 @@
+<div id="sidebar">
+  <% if logged_in? %>
+    <h2>Hello, <%= current_user.name ||= current_user.login %></h2>
+    <ul>
+      <li><%= link_to "My Account", edit_user_path(current_user) %></li>
+      <li><%= link_to "Logout", logout_path %></li>
+      <% if admin? %>
+        <li><%= link_to "Administration", admin_users_path %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h2>Hello</h2>
+    <ul>
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Login", login_path %></li>
+    </ul>
+  <% end %>
+  <h2>Pages</h2>
+  <ul>
+    <li><%= link_to "Home", home_path %></li>
+    <li><%= link_to "About", "#" %></li>
+  </ul>
+</div>

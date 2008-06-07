@@ -1,0 +1,77 @@
+<% content_for(:menu) do %>
+  <li><%= link_to "View Site", home_path %></li>
+  <li><%= link_to "Dashboard", admin_path %></li>
+  <li class="current_page_item"><%= link_to "Users", admin_users_path %></li>
+<% end %>
+
+<h2>Users</h2>
+
+<% form_tag mass_update_admin_users_path, :id => 'main-form', :method => :put do %>  
+<table id="admin-users">
+  <tr>
+    <th class="user_id">id</th>
+    <th class="login">login</th>
+    <th class="email">email</th>
+    <th class="role">role</th>
+    <th class="state">state</th>
+  </tr>
+  <% for user in @users %>
+    <tr id="user_<%= user.id %>" class="<%= cycle "even", "odd" %>">
+      <td class="user_id">
+        <% if current_user.eql? user then disabled = true else disabled = false end %>
+        <%= check_box_tag "user_ids[]", user.id, false, :disabled => disabled %><%= user.id %>
+      </td>
+      <td><%= user.login %></td>
+      <td><%= user.email %></td>
+      <td><%= user.role %></td>
+      <td><%= user.state %></td>
+    </tr>
+  <% end %>
+</table>
+<div id="selections">
+<p>
+  <%= radio_button_tag 'attr_update', 'role' %><label for="attr_update_role"> Change Role To</label>
+  <%= select_tag 'role', options_for_select(User::ROLES) %>
+</p>
+<p>
+  <%= radio_button_tag 'attr_update', 'event' %><label for="attr_update_event"> Change With Event</label>
+  <%= select_tag 'event', options_for_select(User::EVENTS) %>
+</p>
+</div>
+<p class="buttons">
+  <button type="submit">
+    <%= image_tag("icons/textfield_key.png", :border => 0) %>Update Users
+  </button>
+</p>
+
+<% end %>
+
+<div id="del">
+<h4>Deleted Users</h4>
+  <table id="deleted-users">
+    <tr>
+      <th>id</th>
+      <th>login</th>
+      <th>email</th>
+      <th>role</th>
+    </tr>
+    <% for user in @deleted %>
+      <tr class="<%= cycle 'deven', 'dodd' %>">
+        <td><%= user.id %></td>
+        <td><%= user.login %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td class="purge-users">
+          <% form_tag purge_admin_user_path(user), :method => :delete do %>
+            <p class="purge-button buttons">
+              <button type="submit" class="negative" onclick="return confirm('Are you sure?');">
+                <%= image_tag("icons/cross.png", :border => 0) %>Purge
+              </button>
+            </p> 
+          <% end %>         
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

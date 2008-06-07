@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Restful_authentication...Take 3</title>
+    <%= stylesheet_link_tag 'application', 'style', 'site' %>
+    <%= javascript_include_tag :defaults %>
+</head>
+<body>
+<div id="wrap">
+  <%= render :partial => 'site/header' %>
+  <div id="content">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
+  <%= render :partial => 'site/sidebar' %>
+</div>
+<%= render :partial => 'site/footer' %>
+</body>
+</html>

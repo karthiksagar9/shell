@@ -1,0 +1,9 @@
+Either
+* Redirect openid login requests to session controller
+* Move openid login into Module for reuse by all controllers
+
+On complete (from OpenID provider)
+* Login if OpenID exists; and redirect to where the user expects to go
+* Create User + UserOpenid otherwise
+  * if !User.valid? redirect to user#edit to complete registration; on save, redirect to where user expects to go
+  * else redirect to wherever user expects to go

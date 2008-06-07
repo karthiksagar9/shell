@@ -1,0 +1,8 @@
+<% content_for(:menu) do %>
+  <li><%= link_to "View Site", home_path %></li>
+  <li class="current_page_item"><%= link_to "Dashboard", admin_path %></li>
+  <li><%= link_to "Users", admin_users_path %></li>
+<% end %>
+
+<h1>Admin Dashboard</h1>
+<p>Stuff is happening. Get an overview here.</p>

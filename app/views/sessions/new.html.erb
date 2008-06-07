@@ -1,0 +1,46 @@
+
+
+<% form_tag sessions_path, :class => "uniForm" do -%>
+  <%= error_messages_for :user %>
+  <fieldset class="inlineLabels">
+    <legend>Login</legend>
+
+    <div class="ctrlHolder">
+      <p>
+        <label for="login">Login</label>
+        <%= text_field_tag 'login', {}, :class => "textInput" %>
+      </p>
+    </div>
+    <div class="ctrlHolder">
+    <p>
+      <label for="password">Password</label>
+      <%= password_field_tag 'password', {}, :class => "textInput" %>
+    </p>
+    </div>
+    <div class="ctrlHolder">
+    <p>
+      <label for="remember_me">Remember me:</label>
+      <%= check_box_tag 'remember_me' %>
+    </p>
+    </div>
+    <p>
+      ...or use:
+    </p>
+
+    <div class="ctrlHolder">
+    <p>
+      <label for="openid_url">OpenID:</label>
+      <%= text_field_tag "openid_url", {}, :class => "textInput openidUrl" %>
+    </p>
+    </div>
+    
+    <div class="buttons">
+      <button type="submit">
+        <img src="/images/icons/textfield_key.png" alt=""/>Login
+      </button>
+    </div>
+    <p>
+      <%= link_to 'Register', signup_url %> - <%= link_to "Forgot Your Password?", forgot_password_path %>
+    </p>
+  </fieldset>
+<% end -%>

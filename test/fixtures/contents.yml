@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+page_001:
+  type: Page
+  title: This is the first title
+  body: This is the first body
+page_002:
+  type: Page
+  title: This is the second title
+  body: This is the second body
