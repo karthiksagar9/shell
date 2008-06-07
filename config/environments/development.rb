@@ -23,6 +23,6 @@ config.action_mailer.raise_delivery_errors = false
   #config.breakpoint_server = true
 #end
 
-config.action_mailer.delivery_method = :test # doesn't send email, use :smtp to send
+config.action_mailer.delivery_method = :smtp # doesn't send email, use :smtp to send
 ActionMailer::Base.raise_delivery_errors = true
 SITE_URL = "localhost:3000"
