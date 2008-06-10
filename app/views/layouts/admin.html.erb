@@ -3,52 +3,45 @@
 <html>
   <head>
     <title>Restful_authentication...Take 3</title>
-    <%= stylesheet_link_tag 'application', 'site', 'admin' %>
+    <%= stylesheet_link_tag 'style' %>
     <%= javascript_include_tag :defaults %>
 </head>
 <body>
-<div id="wrapper">
-  <div id="menu">
-    <ul>
-      <%= yield :menu %>
-    </ul>
-  </div>
-  <div id="header">
-    <div id="logo">
-      <h1>Administration</h1>
-      <p>Restful_Authentication admin interface</p>
-    </div>
-    <div id="search">
+
+
+<div class="header">
+
+	<div id="menu">
+		<ul>
+	      <%= yield :menu %>
+	    </ul>
+	</div>
+
+</div>
+
+<div class="main">
+	<h1>Administration</h1>
+	  
+    <div id="search">Search
       <form action="" method="get">
         <fieldset>
           <input id="s" type="text" value="" name="s" />
         </fieldset>
       </form>
     </div>
-  </div>
-  <div id="page">
-    <div id="bgtop"></div>
-    <div id="bgbottom">
-      <div id="content">
-        <div class="post">
-          <%= yield %>
-        </div>
-      </div>
-      <div id="sidebar2" class="sidebar">
-          <ul>
-            <li>
-              <h2>Stuff</h2>
-              <ul>
-                <li><%= link_to "More", "#" %></li>
-              </ul>
-            </li>
-          </ul>
-      </div>
-      <div style="clear:both"></div>
-    </div>
-  </div>
-  <div id="footer">
-    <p>Copyright 2008 MoreBS.com</p>
-  </div>
+	
+	<div>	
+         <%= yield %>
+	</div>
+	
 </div>
+
+<div class="sidebar">
+
+</div>
+
+<div class="footer">
+
+</div>
+   
 </body>

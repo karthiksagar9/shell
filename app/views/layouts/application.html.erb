@@ -3,20 +3,29 @@
 <html>
   <head>
     <title>Restful_authentication...Take 3</title>
-    <%= stylesheet_link_tag 'application', 'style', 'site' %>
+    <%= stylesheet_link_tag %>
     <%= javascript_include_tag :defaults %>
 </head>
 <body>
-<div id="wrap">
+
+<div class="header">
   <%= render :partial => 'site/header' %>
-  <div id="content">
+</div>
+
+<div class="main">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
     <%= yield %>
-  </div>
+</div>
+
+<div class="sidebar">
   <%= render :partial => 'site/sidebar' %>
 </div>
-<%= render :partial => 'site/footer' %>
+
+<div class="footer"></div>
+	<%= render :partial => 'site/footer' %>
+</div>
+
 </body>
 </html>

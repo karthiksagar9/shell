@@ -5,19 +5,17 @@
     <legend>Edit My Account</legend>
 
     <div class="ctrlHolder">
-      <p>
         <label for="login">Login</label>
         <%= f.text_field :login, :class => "textInput" %>
-      </p>
     </div>    
+	
     <div class="ctrlHolder">
-      <p>
         <label for="email">Email</label>
         <%= f.text_field :email, :class => "textInput" %>
-      </p>
     </div>
+	
     <div class="ctrlHolder">
-      <p class="openidList">
+      <div class="openidList">
         <label for="openid">OpenIDs <img src="/images/openid.gif" width="16" height="16" alt="Openid"></label>
         
         <% @user_openids.map do |o| %>
@@ -25,26 +23,23 @@
           <%= link_to(o.denormalized_url, o.openid_url) %><br />
         <% end %>
         <%= link_to("Add OpenID to account", new_user_user_openid_url(@user)) %>
-      </p>
+      </div>
     </div>
+	
     <% if current_user.user_openids.size.eql? 0 %>
       <div class="ctrlHolder">
-        <p>
           <label for="password">Password</label>
           <%= f.password_field :password, :class => "textInput" %>
-        </p>  
       </div>
+	  
       <div class="ctrlHolder">
-        <p>
           <label for="password_confirmation">Confirm Password</label>
           <%= f.password_field :password_confirmation, :class => "textInput" %>
-        </p>
       </div>
+	  
     <% end %>
     <div class="buttons">
-      <button type="submit" class="positive">
-        <img src="/images/icons/tick.png" alt=""/>Save
-      </button>
+      <button type="submit" class="positive">Save</button>
     </div>
   </fieldset>
 <% end -%>

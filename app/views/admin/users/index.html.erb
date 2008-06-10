@@ -28,26 +28,26 @@
     </tr>
   <% end %>
 </table>
+
 <div id="selections">
-<p>
-  <%= radio_button_tag 'attr_update', 'role' %><label for="attr_update_role"> Change Role To</label>
-  <%= select_tag 'role', options_for_select(User::ROLES) %>
-</p>
-<p>
-  <%= radio_button_tag 'attr_update', 'event' %><label for="attr_update_event"> Change With Event</label>
-  <%= select_tag 'event', options_for_select(User::EVENTS) %>
-</p>
+	<div>
+		<%= radio_button_tag 'attr_update', 'role' %><label for="attr_update_role"> Change Role To</label>
+		<%= select_tag 'role', options_for_select(User::ROLES) %>
+	</div>
+	<div>
+		<%= radio_button_tag 'attr_update', 'event' %><label for="attr_update_event"> Change With Event</label>
+		<%= select_tag 'event', options_for_select(User::EVENTS) %>
+	</div>
 </div>
-<p class="buttons">
-  <button type="submit">
-    <%= image_tag("icons/textfield_key.png", :border => 0) %>Update Users
-  </button>
-</p>
+
+<div>
+  <button type="submit">Update Users</button>
+</div>
 
 <% end %>
 
 <div id="del">
-<h4>Deleted Users</h4>
+<h2>Deleted Users</h2>
   <table id="deleted-users">
     <tr>
       <th>id</th>

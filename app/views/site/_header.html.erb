@@ -1,4 +1,23 @@
 <div id="header">
-  <h1><%= link_to "Restful_Authentication", home_path %></h1>
-  <p>and all that other stuff</p>
+ 
+  <ul>
+  	  <li><%= link_to "Home", home_path %></li>
+  	
+	<% if logged_in? %>
+      <li><%= link_to "My Account", edit_user_path(current_user) %></li>
+      <li><%= link_to "Logout", logout_path %></li>
+      
+	  <% if admin? %>
+      <li><%= link_to "Administration", admin_users_path %></li>
+      <% end %>
+	  
+  	<% else %>
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Login", login_path %></li>
+  	<% end %>
+	
+      <li><%= link_to "About", "#" %></li>
+  </ul>
+</div>
+  
 </div>

@@ -4,15 +4,12 @@
     <legend>Reset Your Password</legend>
   
     <div class="ctrlHolder">
-      <p>
         <label for="email">What is the email address used to create your account?</label>
         <%= text_field_tag :email, {}, :tabindex => 1, :class => "textInput" %>
-      </p>
     </div>
-    <p class="buttons">
-      <button id="up-butt" type="submit" tabindex="2">
-        <%= image_tag("icons/textfield_key.png", :border => 0 ) %>Send Reset Code
-      </button>
-    </p>
+	
+    <div>
+      <button id="up-butt" type="submit" tabindex="2">Send Reset Code</button>
+    </div>
   </fieldset>
 <% end %>
