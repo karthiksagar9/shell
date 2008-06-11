@@ -4783,3 +4783,55 @@ Rendered site/_header (0.00000)
 Rendered site/_sidebar (0.00000)
 Rendered site/_footer (0.00000)
 Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01500 (48%) | DB: 0.01600 (51%) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-06-10 17:06:20) [GET]
+  Session ID: BAh7CDoJdXNlcmkJIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8w--66d0c0e500770e80c6c1186575517856590a5cb1
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/rdoc" with {:method=>:get}):
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Webserver/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    D:/Webserver/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/Webserver/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    D:/Webserver/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    D:/Webserver/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/Webserver/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering D:/Webserver/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SiteController#index (for 127.0.0.1 at 2008-06-10 17:06:23) [GET]
+  Session ID: BAh7CDoJdXNlcmkJIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8w--66d0c0e500770e80c6c1186575517856590a5cb1
+  Parameters: {"action"=>"index", "controller"=>"site"}
+Rendering template within layouts/application
+Rendering site/index
+  [4;36;1mUser Columns (0.062000)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.015000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Rendered site/_header (0.00000)
+Rendered site/_sidebar (0.00000)
+Rendered site/_footer (0.00000)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.01600 (14%) | DB: 0.07700 (70%) | 200 OK [http://localhost/]
