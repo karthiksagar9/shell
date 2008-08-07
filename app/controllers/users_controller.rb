@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   before_filter :login_required, :only => [ :edit, :update, :change_password ]
   before_filter :not_logged_in_required, :only => [:new, :create]
+  
+  before_filter :find_user
   def new
     @user = User.new(params[:user])
     @user.valid? if params[:user]
@@ -57,6 +59,12 @@ class UsersController < ApplicationController
       flash[:notice] = "Signup complete!"
     end
     redirect_back_or_default('/')
+  end
+  
+  private
+  
+  def find_user
+    @user = User.find_by_permalink(params[:pernalink]) || User.find(params[:permalink])
   end
 
 end
