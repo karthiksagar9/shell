@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
   before_create :make_activation_code
   after_create :make_user_openid
   
-  
   acts_as_state_machine :initial => :pending
   state :passive
   state :pending, :enter => :make_activation_code
@@ -195,4 +194,10 @@ class User < ActiveRecord::Base
     self.activated_at = Time.now.utc
     self.deleted_at = self.activation_code = nil
   end
+  
+  
+  def to_param
+    "#{username.gsub(/[^a-z0-9]+/i, '-')}" if self.username
+  end
+  
 end
