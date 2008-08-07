@@ -1,5 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :pages
+  
+  map.resources :users, :member_path => 'users/:permalink' do |user|
+    users.resources :lists
+  end
+  
   map.home '/', :controller => "site", :action => 'index'
 
   map.login   '/login',  :controller => 'sessions', :action => 'new'
