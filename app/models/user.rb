@@ -160,6 +160,14 @@ class User < ActiveRecord::Base
   def change_pw?  
     @change_pw  
   end
+  
+  
+  def to_param
+    self.login
+    "#{login.gsub(/[^a-z0-9]+/i, '-')}" if self.login
+  end
+  
+  
   protected
   # before filter 
   def encrypt_password
@@ -196,8 +204,6 @@ class User < ActiveRecord::Base
   end
   
   
-  def to_param
-    "#{username.gsub(/[^a-z0-9]+/i, '-')}" if self.username
-  end
+
   
 end

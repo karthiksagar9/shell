@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :pages
-  
-  map.resources :users, :member_path => 'users/:permalink' do |user|
+
+  map.resources :users, :member_path => '/users/:permalink' do |users|
     users.resources :lists
   end
   

@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 5) do
 
   create_table "users", :force => true do |t|
     t.string   "login"
+    t.string   "permalink"
     t.string   "name"
     t.string   "email"
     t.string   "crypted_password",          :limit => 40
