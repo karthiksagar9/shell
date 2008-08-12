@@ -164,7 +164,7 @@ class User < ActiveRecord::Base
   
   def to_param
     self.login
-    "#{login.gsub(/[^a-z0-9]+/i, '-')}" if self.login
+    #"#{login.gsub(/[^a-z0-9]+/i, '-')}" if self.login
   end
   
   

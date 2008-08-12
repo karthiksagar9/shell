@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.valid? if params[:user]
   end
+  
+  def show
+    
+  end
 
   def normal_create
     @user = User.new(params[:user])
