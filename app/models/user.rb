@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   attr_accessor :identity_url
   
   has_many :user_openids, :dependent => :destroy
+  # added to enable the friendly_id plugin
+  has_friendly_id :login
   
   validates_presence_of     :email,                       :if => :not_openid?
   validates_length_of       :email,    :within => 3..100, :if => :not_openid?
@@ -26,6 +28,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   before_create :make_activation_code
   after_create :make_user_openid
+  
   
   acts_as_state_machine :initial => :pending
   state :passive
@@ -160,14 +163,6 @@ class User < ActiveRecord::Base
   def change_pw?  
     @change_pw  
   end
-  
-  
-  def to_param
-    self.login
-    #"#{login.gsub(/[^a-z0-9]+/i, '-')}" if self.login
-  end
-  
-  
   protected
   # before filter 
   def encrypt_password
@@ -202,8 +197,4 @@ class User < ActiveRecord::Base
     self.activated_at = Time.now.utc
     self.deleted_at = self.activation_code = nil
   end
-  
-  
-
-  
 end

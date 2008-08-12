@@ -3,37 +3,28 @@ class UsersController < ApplicationController
 
   before_filter :login_required, :only => [ :edit, :update, :change_password ]
   before_filter :not_logged_in_required, :only => [:new, :create]
-  
-  
   def new
     @user = User.new(params[:user])
     @user.valid? if params[:user]
   end
-  
-  def show
-    
-  end
 
   def normal_create
     @user = User.new(params[:user])
-    @user.permalink = @user.login
     @user.save!
     self.current_user = @user
     redirect_back_or_default('/')
-    flash[:notice] = "for permalink: " + @user.permalink
+    flash[:notice] = "Thanks for signing up!"
   rescue ActiveRecord::RecordInvalid
     render :action => 'new'
   end
   
   def edit
-    #@user = User.find(params[:id])
-    @user = User.find_by_permalink(params[:permalink]) || User.find(params[:permalink])
+    @user = User.find(params[:id])
     @user_openids = @user.user_openids
   end
   
   def update
-    #@user = User.find(params[:id])
-    @user = User.find_by_permalink(params[:permalink]) || User.find(params[:permalink])
+    @user = User.find(params[:id])
     @success = @user.update_attributes(params[:user]) #TODO - protect some fields
     respond_to do |format|
       if @success
@@ -46,8 +37,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    #@user = User.find(params[:id])
-    @user = User.find_by_permalink(params[:permalink]) || User.find(params[:permalink])
+    @user = User.find(params[:id])
     if @user.destroy
       self.current_user.forget_me if logged_in?
       cookies.delete :auth_token
@@ -68,8 +58,5 @@ class UsersController < ApplicationController
     end
     redirect_back_or_default('/')
   end
-  
-
-  
 
 end

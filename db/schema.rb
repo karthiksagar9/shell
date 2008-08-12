@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "contents", :force => true do |t|
     t.string   "type"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(:version => 5) do
     t.string  "salt",       :default => "", :null => false
   end
 
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.string   "sluggable_type"
+    t.integer  "sluggable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type"], :name => "index_slugs_on_name_and_sluggable_type", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
   create_table "user_openids", :force => true do |t|
     t.string   "openid_url", :default => "", :null => false
     t.integer  "user_id",                    :null => false
@@ -52,7 +63,6 @@ ActiveRecord::Schema.define(:version => 5) do
 
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.string   "permalink"
     t.string   "name"
     t.string   "email"
     t.string   "crypted_password",          :limit => 40
