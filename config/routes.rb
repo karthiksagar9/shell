@@ -12,10 +12,15 @@ ActionController::Routing::Routes.draw do |map|
   map.reset_password '/reset_password/:activation_code', :controller => 'passwords', :action => 'edit'
   
   map.open_id_complete         'sessions', :controller => "sessions", :action => "create", :requirements => { :method => :get }
-  map.open_id_complete_on_user 'users',    :controller => "users",    :action => "create", :requirements => { :method => :get }
+  #map.open_id_complete_on_user 'users',    :controller => "users",    :action => "create", :requirements => { :method => :get }
+  
   map.resources :users do |user|
-    user.resources :user_openids
+    #user.resources :user_openids
+    user.resources :lists do |list|
+      list.resources :items
+    end
   end
+  
   map.resource :sessions
 
   map.admin '/admin', :controller => 'admin/dashboard', :action => 'index'
