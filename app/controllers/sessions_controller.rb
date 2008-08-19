@@ -26,9 +26,9 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = { 
           :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      successful_login
+      successful_login #defined in helpers/user_openids_helper.rb
     else
-      failed_login('Invalid login or password')
+      failed_login('Invalid login or password') # defined in helpers/user_openids_helper.rb
     end
   end
 

@@ -62,7 +62,9 @@ module UserOpenidsHelper
     end
 
     def successful_login
-      redirect_back_or_default('/')
+      # originally: redirect_back_or_default('/')
+      # now:
+      redirect_to user_path(current_user)
       flash[:notice] = "Logged in successfully"
     end
 

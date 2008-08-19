@@ -12,4 +12,7 @@ class ApplicationController < ActionController::Base
   def im(user)
     user.eql? current_user
   end
+  
+  
+  
 end

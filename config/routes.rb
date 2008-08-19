@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :pages
+  #map.resources :pages
   map.home '/', :controller => "site", :action => 'index'
 
   map.login   '/login',  :controller => 'sessions', :action => 'new'
