@@ -1,0 +1,1 @@
+The basic shell for any future web-app development
